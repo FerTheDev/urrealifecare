@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Urrea LifeCare</title>
+    <!-- Ant Design CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/antd/5.8.4/reset.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/antd/5.8.4/antd.min.css" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --azul-principal: #0b6fa4;
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .animated-gradient {
+            background: linear-gradient(-45deg, #0b6fa4, #0e9c8f, #1ec8e7, #b2f7ef, #0b6fa4);
+            background-size: 400% 400%;
+            animation: gradient-shift 8s ease infinite;
+        }
+
+        body {
+            background: #fff;
+            color: #111;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        nav {
+            background: white;
+            padding: 20px 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0e9c8f;
+        }
+
+        nav a {
+            color: #0e9c8f;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 30px;
+            transition: color 0.2s;
+        }
+
+        nav a.active,
+        nav a:hover {
+            color: var(--azul-principal);
+        }
+
+        .contact-section {
+            padding: 80px 24px 40px 24px;
+            background: #fff;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(120deg, #e6fcfa 60%, #fff 100%);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(19, 226, 221, 0.10);
+            padding: 48px 36px 40px 36px;
+            text-align: center;
+        }
+
+        .contact-title {
+            color: var(--azul-principal);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .contact-info {
+            font-size: 1.15rem;
+            color: #222;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .ant-btn-primary {
+            font-weight: bold;
+            background: var;
+            border: none;
+        }
+
+        .ant-btn-primary:hover {
+            background: #0e9c8f;
+        }
+
+        footer {
+            padding: 40px 24px;
+            background: #f0f0f0;
+            text-align: center;
+        }
+
+        footer p {
+            color: #8c8c8c;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav style="background: white; padding: 20px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <h1 style="margin: 0; font-size: 1.5rem; font-weight: 700; color: #0e9c8f;">Urrea LifeCare</h1>
+            <div style="display: flex; gap: 8px;">
+                <a href="index.html" style="color: #0e9c8f; text-decoration: none; font-weight: 500;">Planos</a>
+                <a href="contato.html" style="color: #0e9c8f; text-decoration: none; font-weight: 500;" class="active">Contato</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="animated-gradient" style="padding: 36px 24px 0 24px; color: #222;">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px;">
+            <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; color: var(--azul-principal); text-shadow: 2px 2px 4px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; width: 100%;">
+                Fale com a Urrea LifeCare
+            </h1>
+            <p style="font-size: 1.2rem; color: var(--azul-principal); margin-bottom: 0; font-weight: 500;"></p>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2 class="contact-title">Contato</h2>
+            <div class="contact-info">
+                Para solicitar uma cotação personalizada ou tirar dúvidas sobre planos de saúde em Curitiba, entre em contato:
+                <br><br>
+                <strong>Instagram:</strong> <a href="https://instagram.com/urrealifecare" target="_blank" style="color: var(--azul-principal); text-decoration: none;">@urrealifecare</a><br>
+                <strong>Telefone:</strong> <a href="tel:+5541998212149" style="color: var(--azul-principal); text-decoration: none;">(41) 99821-2149</a>
+            </div>
+            <a href="https://wa.me/5541998212149" target="_blank" rel="noopener" class="ant-btn ant-btn-lg" style="font-weight: bold; background: linear-gradient(90deg, #25d366 60%, #1ec8e7 100%); border: none; color: #fff; display: inline-flex; align-items: center; gap: 10px; border-radius: 32px; box-shadow: 0 2px 8px rgba(37,211,102,0.12); padding: 0.9em 2.2em; font-size: 1.18rem; transition: background 0.2s;">
+                <i class="fab fa-whatsapp" style="font-size: 1.4em;"></i> Fale no WhatsApp
+            </a>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p>© 2025 Urrea LifeCare</p>
+        </div>
+    </footer>
+</body>
+
+</html>

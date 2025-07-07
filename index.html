@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planos de Saúde em Curitiba</title>
+    <!-- Ant Design CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/antd/5.8.4/reset.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/antd/5.8.4/antd.min.css" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --azul-principal: #0b6fa4;
+        }
+        body {
+            background: linear-gradient(120deg, #e6fcfa 60%, #fff 100%);
+            color: #111;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animated-gradient {
+            background: linear-gradient(-45deg, #0b6fa4, #0e9c8f, #1ec8e7, #b2f7ef, #0b6fa4);
+            background-size: 400% 400%;
+            animation: gradient-shift 8s ease infinite;
+            border-radius: 0 0 32px 32px;
+            box-shadow: 0 6px 32px rgba(19,226,221,0.10);
+        }
+        nav {
+            background: white;
+            padding: 20px 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-radius: 0 0 24px 24px;
+        }
+        nav h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0e9c8f;
+            letter-spacing: -1px;
+        }
+        nav a {
+            color: #0e9c8f;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 18px;
+            padding: 6px 18px;
+            transition: background 0.18s, color 0.18s;
+        }
+        nav a.active, nav a:hover {
+            background: #e6fcfa;
+            color: var(--azul-principal);
+        }
+        .ant-layout {
+            min-height: 100vh;
+            background: transparent;
+        }
+        .apresentacao-organica {
+            display: flex;
+            flex-wrap: wrap;
+            background: linear-gradient(120deg, #e6fcfa 60%, #fff 100%);
+            border-radius: 32px;
+            box-shadow: 0 6px 32px rgba(19,226,221,0.10);
+            overflow: hidden;
+            align-items: stretch;
+            margin-bottom: 56px;
+        }
+        .apresentacao-organica img {
+            border-radius: 32px;
+            box-shadow: 0 8px 32px rgba(19,226,221,0.15);
+        }
+        .apresentacao-organica .texto {
+            padding: 2.8rem 2.5rem;
+            background: transparent;
+            text-align: left;
+            font-size: 1.22rem;
+            line-height: 1.85;
+            color: #1a2a2a;
+        }
+        .apresentacao-organica h2 {
+            font-size: 2rem;
+            color: var(--azul-principal);
+            font-weight: 700;
+            margin-bottom: 18px;
+            letter-spacing: -1px;
+        }
+        .apresentacao-organica ul {
+            margin-left: 1.2rem;
+            margin-bottom: 18px;
+            color: var(--azul-principal);
+            font-size: 1.08rem;
+        }
+        .ant-row.ant-row-gutter {
+            gap: 24px 24px;
+        }
+        .ant-col > div {
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(19,226,221,0.08);
+            transition: box-shadow 0.18s, transform 0.18s;
+        }
+        .ant-col > div:hover {
+            box-shadow: 0 6px 24px rgba(19,226,221,0.18);
+            transform: translateY(-4px) scale(1.03);
+        }
+        .planos-marquee-wrapper {
+            border-radius: 18px;
+            background: #f5fafd;
+            box-shadow: 0 2px 12px rgba(19,226,221,0.08);
+            padding: 18px 0;
+        }
+        /* Marquee animation fix */
+        .planos-marquee-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+        .planos-marquee {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            width: max-content;
+            animation: planos-marquee-move 18s linear infinite;
+        }
+        @keyframes planos-marquee-move {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .ant-btn-lg {
+            border-radius: 32px !important;
+            font-size: 1.18rem !important;
+            padding: 0.9em 2.2em !important;
+        }
+        .azul-principal, .azul-principal * {
+            color: var(--azul-principal) !important;
+        }
+        footer {
+            padding: 40px 24px;
+            background: #f0f0f0;
+            text-align: center;
+            border-radius: 32px 32px 0 0;
+            box-shadow: 0 -2px 12px rgba(19,226,221,0.08);
+        }
+        footer p {
+            color: #8c8c8c;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <h1>Urrea LifeCare</h1>
+            <div style="display: flex; gap: 30px;">
+                <a href="#planos">Planos</a>
+                <a href="contato.html">Contato</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Container -->
+    <div class="ant-layout">
+        <!-- Hero Section -->
+        <section class="animated-gradient" style="padding: 80px 24px; color: #222;">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 20px; color: var(--azul-principal); text-shadow: 2px 2px 4px rgba(0,0,0,0.08);">
+                    Bem-vindo à Urrea LifeCare!<br>
+                    <span style="font-size: 2rem; font-weight: 400; color: var(--azul-principal);">Cuidar da sua saúde é o nosso compromisso!</span>
+                </h1>
+                <p style="font-size: 1.3rem; color: #222; margin-bottom: 40px; font-weight: 500;">
+                </p>
+            </div>
+        </section>
+        <!-- Card de Apresentação -->
+        <div style="max-width: 950px; margin: 0 auto; margin-top: 48px;">
+            <div class="apresentacao-organica">
+                <!-- Imagem à esquerda -->
+                <div style="flex: 1 1 420px; min-width: 320px; max-width: 520px; background: #f5fafd; display: flex; align-items: center; justify-content: center; padding: 2.5rem 1.5rem; border-right: 1px solid #e6fcfa;">
+                    <img src="images/geral.jpeg" alt="Consultoria em planos de saúde" style="width: 100%; max-width: 400px; border-radius: 18px; box-shadow: 0 6px 24px rgba(19,226,221,0.15); object-fit: cover;">
+                </div>
+                <!-- Texto à direita -->
+                <div style="flex: 2 1 400px; min-width: 320px;" class="texto">
+                    <h2>Consultoria em Saúde e Bem-Estar</h2>
+                    <p style="margin-bottom: 18px; font-size: 1.18rem; color: #222; font-weight: 500;">Na <strong>Urrea LifeCare</strong>, oferecemos consultoria personalizada em planos de saúde e odontológicos para você, sua família ou sua empresa, sempre com foco no que realmente importa: o seu bem-estar.</p>
+                    <ul style="margin-left: 1.2rem; margin-bottom: 18px; color: var(--azul-principal); font-size: 1.08rem;">
+                        <li>Atendimento dedicado em Curitiba e região</li>
+                        <li>Opções do mercado apresentadas de forma clara e transparente</li>
+                        <li>Contratações individuais, familiares e empresariais</li>
+                        <li>Escolha do plano ideal para o seu perfil e bolso</li>
+                    </ul>
+                    <p style="color: #222; font-size: 1.08rem;">Conte com nossa equipe para facilitar sua decisão e garantir a melhor experiência em saúde!</p>
+                </div>
+            </div>
+        </div>
+        <!-- Planos Section -->
+        <section id="planos" style="padding: 60px 24px; background: #fafafa;">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h2 style="font-size: 2.2rem; font-weight: 600; text-align: center; margin-bottom: 40px; color: var(--azul-principal);">Planos em Destaque</h2>
+                <div class="ant-row ant-row-gutter" style="row-gap: 32px; display: flex; flex-wrap: wrap; justify-content: center;">
+                    <div class="ant-col ant-col-24 ant-col-md-8" style="min-width: 260px; max-width: 320px; margin: 1rem;">
+                        <div style="background: #fff; color: #111; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.10); padding: 1.5rem 1.2rem; text-align: center;">
+                            <img src="images/logo unimed.png" alt="Logo Unimed Curitiba" style="max-width: 140px; max-height: 70px; margin-bottom: 18px; display: block; margin-left: auto; margin-right: auto;">
+                            <ul style="text-align:left; margin: 1rem 0 0 1.2rem; padding: 0; color: #111;">
+                                <li>Rede ampla de hospitais e clínicas</li>
+                                <li>Atendimento de emergência 24h</li>
+                                <li>Planos para pessoas físicas, famílias e empresas</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ant-col ant-col-24 ant-col-md-8" style="min-width: 260px; max-width: 320px; margin: 1rem;">
+                        <div style="background: #fff; color: #111; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.10); padding: 1.5rem 1.2rem; text-align: center;">
+                            <img src="images/logo clinipam.webp" alt="Logo Clinipam Hapvida" style="max-width: 140px; max-height: 70px; margin-bottom: 18px; display: block; margin-left: auto; margin-right: auto;">
+                            <ul style="text-align:left; margin: 1rem 0 0 1.2rem; padding: 0; color: #111;">
+                                <li>Rede própria de hospitais e clínicas em Curitiba</li>
+                                <li>Planos acessíveis e segmentados</li>
+                                <li>Atendimento digital e presencial</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ant-col ant-col-24 ant-col-md-8" style="min-width: 260px; max-width: 320px; margin: 1rem;">
+                        <div style="background: #fff; color: #111; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.10); padding: 1.5rem 1.2rem; text-align: center;">
+                            <img src="images/logo select.png" alt="Logo Select" style="max-width: 90px; max-height: 48px; margin-bottom: 18px; display: block; margin-left: auto; margin-right: auto;">
+                            <ul style="text-align:left; margin: 1rem 0 0 1.2rem; padding: 0; color: #111;">
+                                <li>Planos regionais e nacionais</li>
+                                <li>Rede credenciada ampla e qualificada</li>
+                                <li>Atendimento humanizado e personalizado</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ant-col ant-col-24 ant-col-md-8" style="min-width: 260px; max-width: 320px; margin: 1rem;">
+                        <div style="background: #fff; color: #111; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.10); padding: 1.5rem 1.2rem; text-align: center;">
+                            <img src="images/logo medsul.png" alt="Logo Medsul" style="max-width: 90px; max-height: 48px; margin-bottom: 18px; display: block; margin-left: auto; margin-right: auto;">
+                            <ul style="text-align:left; margin: 1rem 0 0 1.2rem; padding: 0; color: #111;">
+                                <li>Planos acessíveis para todos os perfis</li>
+                                <li>Rede credenciada em Curitiba e região</li>
+                                <li>Atendimento rápido e eficiente</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Todos os Planos Section -->
+        <section id="todos-planos" style="padding: 40px 24px; background: #fff;">
+            <div style="max-width: 950px; margin: 0 auto;">
+                <h2 style="font-size: 2rem; font-weight: 600; text-align: center; margin-bottom: 32px; color: var(--azul-principal);">Todos os Planos</h2>
+                <div class="planos-marquee-wrapper" style="overflow: hidden; width: 100%; border-radius: 18px; background: #f5fafd; box-shadow: 0 2px 12px rgba(19,226,221,0.08); padding: 18px 0;">
+                    <div class="planos-marquee">
+                        <img src="images/logo unimed.png" alt="Unimed Curitiba" style="max-width: 140px; max-height: 70px; object-fit: contain;">
+                        <img src="images/logo clinipam.webp" alt="Clinipam Hapvida" style="max-width: 140px; max-height: 70px; object-fit: contain;">
+                        <img src="images/logo select.png" alt="Select" style="max-width: 90px; max-height: 48px; object-fit: contain;">
+                        <img src="images/logo medsul.png" alt="Medsul" style="max-width: 90px; max-height: 48px; object-fit: contain;">
+                        <img src="images/logo medsenior.png" alt="Medsenior" style="max-width: 140px; max-height: 70px; object-fit: contain;">
+                        <img src="images/logo bradesco.png" alt="Bradesco Saúde" style="max-width: 90px; max-height: 48px; object-fit: contain;">
+                        <img src="images/logo sulamerica.png" alt="SulAmérica Saúde" style="max-width: 90px; max-height: 48px; object-fit: contain;">
+                        <img src="images/logo amil.png" alt="Amil" style="max-width: 90px; max-height: 48px; object-fit: contain;">
+                        <!-- Repete para efeito contínuo -->
+                        <img src="images/logo unimed.png" alt="Unimed Curitiba" style="max-width: 140px; max-height: 70px; object-fit: contain;">
+                        <img src="images/logo clinipam.webp" alt="Clinipam Hapvida" style="max-width: 140px; max-height: 70px; object-fit: contain;">
+                        <img src="images/logo select.png" alt="Select" style="max-width: 90px; max-height: 48px; object-fit: contain;">
+                        <img src="images/logo medsul.png" alt="Medsul" style="max-width: 90px; max-height: 48px; object-fit: contain;">
+                        <img src="images/logo medsenior.png" alt="Medsenior" style="max-width: 140px; max-height: 70px; object-fit: contain;">
+                        <img src="images/logo bradesco.png" alt="Bradesco Saúde" style="max-width: 90px; max-height: 48px; object-fit: contain;">
+                        <img src="images/logo sulamerica.png" alt="SulAmérica Saúde" style="max-width: 90px; max-height: 48px; object-fit: contain;">
+                        <img src="images/logo amil.png" alt="Amil" style="max-width: 90px; max-height: 48px; object-fit: contain;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contato Section -->
+        <section id="contato" style="padding: 60px 24px; background: #fff;">
+            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: 2rem; font-weight: 600; color: var(--azul-principal); margin-bottom: 24px;">Contato</h2>
+                <p style="font-size: 1.1rem; color: #222; margin-bottom: 30px;">Solicite uma cotação personalizada ou tire suas dúvidas sobre planos de saúde em Curitiba.</p>
+                <a href="https://wa.me/5541998212149" target="_blank" rel="noopener" class="ant-btn ant-btn-lg" style="font-weight: bold; background: linear-gradient(90deg, #25d366 60%, #1ec8e7 100%); border: none; color: #fff; display: inline-flex; align-items: center; gap: 10px; border-radius: 32px; box-shadow: 0 2px 8px rgba(37,211,102,0.12); padding: 0.9em 2.2em; font-size: 1.18rem; transition: background 0.2s;">
+                    <i class="fab fa-whatsapp" style="font-size: 1.4em;"></i> Fale no WhatsApp
+                </a>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p style="color: #8c8c8c; margin-bottom: 20px; font-size: 1rem;">
+                    © 2025 Urrea LifeCare
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+

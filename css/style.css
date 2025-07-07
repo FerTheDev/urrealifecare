@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Fira+Mono:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    background: #111 !important;
+    color: #fff;
+}
+.ant-layout-content, main {
+    background: #222 !important;
+    color: #fff;
+}
+header, .ant-layout-header {
+    background: linear-gradient(90deg, #0f2027 0%, #0f7fa6 100%);
+    color: #fff;
+    padding: 2.5rem 0 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin-bottom: 2rem;
+}
+header h1, .ant-layout-header h1 {
+    color: #ffd700;
+    font-size: 2.7rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    text-shadow: 1px 2px 8px rgba(0,0,0,0.15);
+}
+.ant-layout-header h1, h2, strong {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+}
+.ant-layout-header nav .ant-menu {
+    background: transparent;
+    border: none;
+    justify-content: center;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.ant-layout-header .ant-menu-item a {
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.ant-layout-header .ant-menu-item a:hover {
+    color: #0f7fa6 !important;
+}
+main p, .ant-layout-content, ul, li, a, div {
+    font-family: 'Fira Mono', 'Montserrat', 'Segoe UI', Arial, sans-serif;
+}
+h1, h2, p, strong, ul li, .ant-btn, a {
+    transition: color 0.2s, background 0.2s, box-shadow 0.2s, text-shadow 0.2s;
+    cursor: pointer;
+}
+h1:hover, h2:hover, strong:hover, ul li:hover {
+    color: #0f7fa6 !important;
+    text-shadow: 0 2px 12px #0f7fa644;
+}
+p:hover {
+    color: #0f7fa6 !important;
+    text-shadow: 0 2px 12px #ffd70044;
+}
+.ant-btn:hover, a:hover {
+    color: #fff !important;
+    background: #0d0302 !important;
+    box-shadow: 0 4px 16px #0f7fa644;
+    text-shadow: 0 2px 12px #0f7fa644;
+}
